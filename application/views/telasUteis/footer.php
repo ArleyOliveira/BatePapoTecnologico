@@ -5,7 +5,7 @@
     <div class="mdl-mini-footer__left-section">
         <div class="mdl-logo">&copy; Bate-Papo Tecnológico 2016</div>
         <ul class="mdl-mini-footer__link-list">
-            <li><a href="#">Contato</a></li>
+            <li><a href="<?php echo base_url("pagina/contato"); ?>">Contato</a></li>
             <li><a href="#">Termos</a></li>
         </ul>
     </div>

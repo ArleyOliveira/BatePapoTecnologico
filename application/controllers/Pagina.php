@@ -54,4 +54,11 @@ class Pagina extends CI_Controller {
         $this->load->view("exibirDados", $dados);
     }
 
+    public function contato() {
+        $dados = array(
+            'titulo' => 'Bate-Papo Tecnológico',
+            'tela' => 'telasStaticas/contato',
+        );
+        $this->load->view("exibirDados", $dados);
+    }
 }
