@@ -16,7 +16,7 @@ class Inicio extends CI_Controller {
    
     public function index() {
         $dados = array(
-            'titulo' => 'Bate Papo Tecnologico',
+            'titulo' => 'Bate-Papo Tecnológico',
             'tela' => 'teste',
         );
         $this->load->view("exibirDados", $dados);

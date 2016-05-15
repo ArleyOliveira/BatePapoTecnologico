@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link REL="SHORTCUT ICON" HREF="<?php echo base_url('icon/icon.ico') ?>">
 
         <script src="<?php echo base_url('lib/mdl/material.min.js') ?>"></script> 
         <link rel="stylesheet" href="<?php echo base_url('lib/mdl/material.min.css') ?>">
-        <link rel="stylesheet" href="<?php echo base_url('lib/mdl/MDL/font.css') ?>">
         <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
 
         <!-- Bootstrap -->
@@ -17,6 +18,9 @@
         <!-- Growl -->
         <link rel="stylesheet" href="<?php echo base_url('lib/jquerygrowl/jquery.growl.css') ?>">
         <script src="<?php echo base_url('lib/jquerygrowl/jquery.growl.js') ?>"></script>
+        
+        <!-- Jquery -->
+        <script src="<?php echo base_url('lib/jquery/jquery-2.1.4.min.js') ?>"></script>
 
         <title> <?php echo $titulo; ?> </title>
 
