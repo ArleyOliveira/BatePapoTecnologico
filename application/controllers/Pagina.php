@@ -13,7 +13,6 @@ class Pagina extends CI_Controller {
         $this->load->library('table');
     }
 
-   
     public function index() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
@@ -21,7 +20,7 @@ class Pagina extends CI_Controller {
         );
         $this->load->view("exibirDados", $dados);
     }
-    
+
     public function info() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
@@ -29,7 +28,7 @@ class Pagina extends CI_Controller {
         );
         $this->load->view("exibirDados", $dados);
     }
-    
+
     public function sobre() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
@@ -37,7 +36,7 @@ class Pagina extends CI_Controller {
         );
         $this->load->view("exibirDados", $dados);
     }
-    
+
     public function organizacao() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
@@ -45,7 +44,7 @@ class Pagina extends CI_Controller {
         );
         $this->load->view("exibirDados", $dados);
     }
-    
+
     public function eventos() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
@@ -61,4 +60,5 @@ class Pagina extends CI_Controller {
         );
         $this->load->view("exibirDados", $dados);
     }
+
 }

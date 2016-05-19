@@ -4,8 +4,7 @@
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title"> 
-          
-          Bate-Papo Tecnológico
+          Bate-papo Tecnológico
       </span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
