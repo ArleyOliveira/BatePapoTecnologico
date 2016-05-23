@@ -21,7 +21,31 @@ class Pagina extends CI_Controller {
         $this->load->view("exibirDados", $dados);
     }
 
+    function do_upload() {
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '100';
+        $config['max_width'] = '1024';
+        $config['max_height'] = '768';
+        $config['file_name'] = 'arley';
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload()) {
+            $error = array('error' => $this->upload->display_errors());
+            print_r($error);
+            echo $config['upload_path'];
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+            print_r($data);
+            
+        }
+    }
+
     public function info() {
+
+
+
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
             'tela' => 'telasStaticas/informacoes',

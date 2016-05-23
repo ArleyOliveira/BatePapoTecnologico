@@ -1,0 +1,8 @@
+// Get the HTML contents of the currently active editor
+console.debug(tinyMCE.activeEditor.getContent());
+
+// Get the raw contents of the currently active editor
+tinyMCE.activeEditor.getContent({format : 'raw'});
+
+// Get content of a specific editor:
+tinyMCE.get('content id').getContent()

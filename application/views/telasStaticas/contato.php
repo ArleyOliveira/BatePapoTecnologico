@@ -20,24 +20,28 @@
             });
 
         }
+        //var a = tinyMCE.get('texto').getContent();
+
     });
 </script>
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8" ng-app="">
-        <div ng-app="">
+    <div class="col-md-8" >
+        <div>
             <p>Input something in the input box:</p>
-            <p>Name : <textarea type="text" ng-model="name" placeholder="Enter name here"></textarea></p>
-            <h1 id="test">Hello</h1>
+            <p>Name : <textarea id="texto" type="text" placeholder="Enter name here"></textarea></p>
+            
+            <button type="button" id="btn" class="btn btn-success"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Ver Texto</button>
+            <div id="result"></div>
         </div>
-        
         <div class="col-md-2"></div>
-
     </div>
+
+
     <script>
         $(document).ready(function () {
-            $("#test").click(function () {
-                $("#test").html("<b>Hello world!</b>"));
+            $("#btn").click(function () {
+                $("#result").html(tinyMCE.get('texto').getContent());
             });
         });
     </script>

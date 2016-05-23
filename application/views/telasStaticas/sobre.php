@@ -18,3 +18,5 @@
 
 <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
 <button type="button" class="btn btn-link">Link</button>
+
+<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
