@@ -1,5 +1,5 @@
 <script src="<?php echo base_url('lib/angularApplications/createUser.js') ?>"></script>
-<div class="row">
+<div class="row" ng-app="myApp">
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <h1 class="text-primary"> Registre-se! </h1>
@@ -142,9 +142,8 @@
                     </div>
                     <div class="col-md-3"></div>
                 </div>
+            </form>
         </div>
     </div>
-</form>
-<div class="col-md-3"></div>
-
+    <div class="col-md-3"></div>
 </div>

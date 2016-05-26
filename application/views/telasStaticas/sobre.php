@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  $.growl({ title: "Growl", message: "The kitten is awake!" });
+  $.growl.error({ message: "The kitten is attacking!" });
+  $.growl.notice({ message: "The kitten is cute!" });
+  $.growl.warning({ message: "The kitten is ugly!" });
+</script>
 <!-- Standard button -->
 <button type="button" class="btn btn-default">Default</button>
 
@@ -20,3 +26,4 @@
 <button type="button" class="btn btn-link">Link</button>
 
 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+
