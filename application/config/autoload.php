@@ -58,7 +58,19 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('email','session','database','DivUtil','PainelUtil','ModMensagemUtil','BotaoUtil','IconsUtil','ModalUtil');
+$autoload['libraries'] = array(
+    'email',
+    'session',
+    'database',
+    'CpfInvalidoExecption',
+    'EmailInvalidoExecption',
+    'ValidaCpf',
+    'DivUtil',
+    'PainelUtil',
+    'ModMensagemUtil',
+    'BotaoUtil',
+    'IconsUtil',
+    'ModalUtil');
 
 /*
 | -------------------------------------------------------------------

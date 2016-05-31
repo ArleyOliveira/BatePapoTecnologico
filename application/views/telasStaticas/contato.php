@@ -26,14 +26,14 @@
         $scope.getContent = function () {
             $("#t").html($scope.tinymceModel);
             //console.log('Editor content:', $scope.tinymceModel);
-            $.growl.notice({ message: "The kitten is cute!" });
+            $.growl.notice({ title: "Notificação", message: $scope.tinymceModel });
         };
         
         $scope.setContent = function () {
             $scope.tinymceModel = 'Time: ' + (new Date());
         };
         $scope.tinymceOptions = {
-            height: 100,
+            height: 300,
             language: 'pt_BR',
             mode: "exact",
             editor_selector: "mceAdvanced",

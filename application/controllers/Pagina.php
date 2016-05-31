@@ -11,6 +11,12 @@ class Pagina extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->helper('array');
         $this->load->library('table');
+        $this->load->model('Teste_model', 'TesteDAO');
+    }
+    
+    public function teste(){
+        $dados = array('nome' => 'Arley');
+        $this->TesteDAO->do_insert($dados);
     }
 
     public function index() {
