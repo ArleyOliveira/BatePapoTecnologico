@@ -39,11 +39,10 @@ class Pagina extends CI_Controller {
 
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
-            print_r($error);
-            echo $config['upload_path'];
+            echo false;
         } else {
             $data = array('upload_data' => $this->upload->data());
-            print_r($data);
+            echo true;
             
         }
     }

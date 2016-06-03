@@ -16,6 +16,13 @@
         <!-- Jquery -->
         <script src="<?php echo base_url('lib/jquery/jquery-2.1.4.min.js') ?>" type="text/javascript"></script>
        
+        <!-- Angular JS-->
+        <script src="<?php echo base_url('lib/angular/angular.js') ?>"></script>
+
+        <!-- Puglin para edição de texto -->
+        <script src="<?php echo base_url('lib/tinymce/tinymce.min.js') ?>"></script>
+        <script src="<?php echo base_url('lib/tinymce/tinymce.js') ?>"></script>
+        
         <!-- MDL -->
         <script src="<?php echo base_url('lib/mdl/material.min.js') ?>"></script>    
         <link rel="stylesheet" href="<?php echo base_url('lib/mdl/material.min.css') ?>">  
@@ -34,15 +41,11 @@
         <link rel="stylesheet" href="<?php echo base_url('lib/jquerygrowl/jquery.growl.css') ?>">
         <script src="<?php echo base_url('lib/jquerygrowl/jquery.growl.js') ?>"></script> 
 
-        <!-- Angular JS-->
-        <script src="<?php echo base_url('lib/angular/angular.js') ?>"></script>
-
+        
         <!-- My Style-->
         <link rel="stylesheet" href="<?php echo base_url('lib/mystyle/style.css') ?>">
 
-        <!-- Puglin para edição de texto -->
-        <script src="<?php echo base_url('lib/tinymce/tinymce.min.js') ?>"></script>
-        <script src="<?php echo base_url('lib/tinymce/tinymce.js') ?>"></script>
+       
         <title> <?php echo $titulo; ?> </title>
 
         <style type="text/css">

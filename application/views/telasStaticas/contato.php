@@ -1,17 +1,3 @@
-<div class="row" ng-app="myApp">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 mdl-layout" >
-        <form ng-controller="TinyMceController">
-            <textarea id="descricao" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
-            <button ng-click="getContent()" class="btn btn-primary">Get content</button>
-            <button ng-click="setContent()" class="btn btn-info">Set content</button>
-
-
-            <span id="t">{{tinymceModel}}</span>
-        </form>
-    </div>
-    <div class="col-md-2"></div>
-</div>
 
 <script type="text/javascript">
     angular.element(document).ready(function () {
@@ -26,36 +12,45 @@
         $scope.getContent = function () {
             $("#t").html($scope.tinymceModel);
             //console.log('Editor content:', $scope.tinymceModel);
-            $.growl.notice({ title: "Notificação", message: $scope.tinymceModel });
+            $.growl.notice({title: "Notificação", message: $scope.tinymceModel});
         };
-        
+
         $scope.setContent = function () {
             $scope.tinymceModel = 'Time: ' + (new Date());
         };
         $scope.tinymceOptions = {
-            height: 300,
+            selector: "textarea", 
+            theme: "modern",
+            height: 400,
             language: 'pt_BR',
-            mode: "exact",
-            editor_selector: "mceAdvanced",
             plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table contextmenu paste code'
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons paste textcolor responsivefilemanager code"
             ],
-            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            content_css: [
-                '//192.168.0.103/BatePapo/lib/tinymce/font/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                '//192.168.0.103/BatePapo/lib/tinymce/font/codepen.min.css'
-            ]
+            toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+            toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+            image_advtab: true,
+            external_filemanager_path: $scope.urlbase + "lib/filemanager/filemanager/",
+            filemanager_title: "Responsive Filemanager",
+            external_plugins: {"filemanager": $scope.urlbase + "lib/filemanager/filemanager/plugin.min.js"}
         };
     });
-    
-    
+
+
 </script>
 
-<script type="text/javascript">
-  $.growl({ title: "Growl", message: "The kitten is awake!" });
-  $.growl.error({ message: "The kitten is attacking!" });
-  $.growl.notice({ message: "The kitten is cute!" });
-  $.growl.warning({ message: "The kitten is ugly!" });
-</script>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mdl-layout" >
+        <form ng-controller="TinyMceController">
+            <textarea id="descricao" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+            <button ng-click="getContent()" class="btn btn-primary">Get content</button>
+            <button ng-click="setContent()" class="btn btn-info">Set content</button>
+
+
+            <span id="t">{{tinymceModel}}</span>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>

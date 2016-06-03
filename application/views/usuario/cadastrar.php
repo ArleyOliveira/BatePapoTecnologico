@@ -1,10 +1,10 @@
-
 <script src="<?php echo base_url('lib/angularApplications/createUser.js') ?>"></script>
 <div class="row" ng-controller="formCtrl">
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <h1 class="text-primary"> Registre-se! </h1>
         <hr>
+        <span ng-bind="usuario.dataNascimento"> </span>
         <span ng-bind="result"> </span>
         <div class="thumbnail">
             <!-- MDL Spinner Component -->   
@@ -54,9 +54,9 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label class="control-label" for="dataNascimento">Data Nascimento * </label>
-                            <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" data-ng-model="usuario.dataNascimento"  value="{{ usuario.dataNascimento}}" aria-describedby="inputError2Status" required>
+                            <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" data-ng-model="usuario.dataNascimento"  aria-describedby="inputError2Status" placeholder="dd-mm-aaaa">
                             <span ng-show="formUsuario.dataNascimento.$touched && formUsuario.dataNascimento.$invalid" class="glyphicon glyphicon-remove form-control-feedback text-danger"></span>
-                            <span class="text-danger" ng-show="formUsuario.dataNascimento.$touched && formUsuario.dataNascimento.$invalid">Campo Obrigatório!</span>
+                            <span class="text-danger" ng-show="formUsuario.dataNascimento.$touched && formUsuario.dataNascimento.$error.date">Campo Obrigatório!</span>
                             <span class="help-block"></span>
 
                         </div>
@@ -109,7 +109,7 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label class="control-label" for="senha">Senha * </label>
-                            <input type="password" placeholder="Senha" class="form-control" name="senha" id="nome" data-ng-model="usuario.senha"  value="{{ usuario.senha}}" data-ng-pattern="/^{6,6}$/i" aria-describedby="inputError2Status" required>
+                            <input type="password" placeholder="Senha" class="form-control" name="senha" id="nome" data-ng-model="usuario.senha"  value="{{ usuario.senha}}" data-ng-pattern="/^{6,6}$/i" aria-describedby="inputError2Status" ng-minlength="8" required>
                             <span ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid" id="inputError2Status" class="sr-only">Preencha este campo!</span>
                             <span ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid" class="glyphicon glyphicon-remove form-control-feedback text-danger"></span>
                             <span class="text-danger" ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid">Campo Obrigatório!</span>
@@ -125,7 +125,7 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label class="control-label" for="repitaSenha">Repita a senha * </label>
-                            <input type="password" placeholder="Repita a senha" class="form-control" name="repitaSenha" id="nome" ng-keydown="verificarSenha(usuario.senha, usuario.repitaSenha)" data-ng-model="usuario.repitaSenha"  value="{{ usuario.repitaSenha}}" aria-describedby="inputError2Status" required>
+                            <input type="password" placeholder="Repita a senha" class="form-control" name="repitaSenha" id="nome" ng-keydown="verificarSenha(usuario.senha, usuario.repitaSenha)" data-ng-model="usuario.repitaSenha"  value="{{ usuario.repitaSenha}}" aria-describedby="inputError2Status"  ng-minlength="8" required>
                             <span ng-show="formUsuario.repitaSenha.$touched && formUsuario.repitaSenha.$invalid" id="inputError2Status" class="sr-only">Preencha este campo!</span>
                             <span ng-show="formUsuario.repitaSenha.$touched && formUsuario.repitaSenha.$invalid" class="glyphicon glyphicon-remove form-control-feedback text-danger"></span>
                             <span class="text-danger" ng-show="formUsuario.repitaSenha.$touched && formUsuario.repitaSenha.$invalid">Campo Obrigatório!</span>
@@ -148,3 +148,16 @@
     </div>
     <div class="col-md-3"></div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker5').datetimepicker({
+            defaultDate: "11/1/2013",
+            disabledDates: [
+                moment("12/25/2013"),
+                new Date(2013, 11 - 1, 21),
+                "11/22/2013 00:53"
+            ]
+        });
+    });
+</script>
