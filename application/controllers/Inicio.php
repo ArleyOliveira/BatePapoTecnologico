@@ -13,13 +13,16 @@ class Inicio extends CI_Controller {
         $this->load->library('table');
     }
 
-   
     public function index() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
             'tela' => 'teste',
         );
         $this->load->view("exibirDados", $dados);
+    }
+
+    public function email($nome = NULL, $sobrenome = NULL) {
+        echo $nome  .' '. $sobrenome;
     }
 
 }

@@ -64,6 +64,8 @@ $autoload['libraries'] = array(
     'database',
     'CpfInvalidoExecption',
     'EmailInvalidoExecption',
+    'LoginInvalidoExecption',
+    'DadosInvalidoExecption',
     'ValidaCpf',
     'DivUtil',
     'PainelUtil',

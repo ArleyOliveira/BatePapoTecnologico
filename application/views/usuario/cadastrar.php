@@ -109,7 +109,7 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label class="control-label" for="senha">Senha * </label>
-                            <input type="password" placeholder="Senha" class="form-control" name="senha" id="nome" data-ng-model="usuario.senha"  value="{{ usuario.senha}}" data-ng-pattern="/^{6,6}$/i" aria-describedby="inputError2Status" ng-minlength="8" required>
+                            <input type="password" placeholder="Senha" class="form-control" name="senha" id="senha" data-ng-model="usuario.senha"  value="{{ usuario.senha}}" data-ng-pattern="/^{6,6}$/i" aria-describedby="inputError2Status" ng-minlength="8" required>
                             <span ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid" id="inputError2Status" class="sr-only">Preencha este campo!</span>
                             <span ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid" class="glyphicon glyphicon-remove form-control-feedback text-danger"></span>
                             <span class="text-danger" ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid">Campo Obrigatório!</span>

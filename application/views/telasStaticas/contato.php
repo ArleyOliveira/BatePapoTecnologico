@@ -37,7 +37,6 @@
         };
     });
 
-
 </script>
 
 <div class="row">
@@ -47,8 +46,6 @@
             <textarea id="descricao" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
             <button ng-click="getContent()" class="btn btn-primary">Get content</button>
             <button ng-click="setContent()" class="btn btn-info">Set content</button>
-
-
             <span id="t">{{tinymceModel}}</span>
         </form>
     </div>

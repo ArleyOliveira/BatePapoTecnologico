@@ -1,6 +1,6 @@
 <?php
 
-class EmailInvalidoExecption extends Exception{
+class LoginInvalidoExecption extends Exception{
 
     // personaliza a apresentação do objeto como string
     public function __toString() {
