@@ -1,4 +1,3 @@
-
 <style type="text/css">
     .login-page {
         width: 360px;
@@ -111,11 +110,13 @@
             }).then(function mySucces(response) {
                 if (response.data.isSuccess) {
                 $.growl.notice({title: response.data.title, message: response.data.message});
+                window.location.href = $scope.urlbase + "Pagina/";
             } else {
                 $.growl.error({title: response.data.title, message: response.data.message});
             }
             }, function myError(response) {
-                $.growl.error({title: "Erro desconhecido!", message: "Falha ao se conectar com o servidor."});
+                //$.growl.error({title: "Erro desconhecido!", message: "Falha ao se conectar com o servidor."});
+                alert(response.data);
             });
         };
     });
@@ -140,7 +141,7 @@
                         <span class="text-danger marginTop" ng-show="formUsuario.senha.$touched && formUsuario.senha.$invalid">Campo Obrigatório!</span>
                     </span>
                     <button type="submit" ng-disabled="formUsuario.email.$invalid || formUsuario.senha.$invalid" ng-click="salvar(email, senha)">Entrar</button>
-                    <p class="message">Não é registrado? <a href="<?php echo base_url("usuario/cadastrar") ?>">Crie sua conta</a></p>
+                    <p class="message text-center">Não é registrado? <a href="<?php echo base_url("usuario/cadastrar") ?>">Crie sua conta</a></p>
                 </form>
             </div>
         </div>

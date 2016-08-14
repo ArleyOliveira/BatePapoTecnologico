@@ -37,5 +37,14 @@ class Eventos extends CI_Controller {
         );
         $this->load->view("exibirDados", $dados);
     }
+    
+    public function cadastrar() {
+        $dados = array(
+            'titulo' => 'Bate-Papo Tecnológico',
+            'tela' => 'evento/cadastrar',
+        );
+        $this->load->view("exibirDados", $dados);
+    }
+
 
 }

@@ -4,8 +4,6 @@
     <div class="col-md-6">
         <h1 class="text-primary"> Registre-se! </h1>
         <hr>
-        <span ng-bind="usuario.dataNascimento"> </span>
-        <span ng-bind="result"> </span>
         <div class="thumbnail">
             <!-- MDL Spinner Component -->   
             <form name="formUsuario"  data-ng-submit="">

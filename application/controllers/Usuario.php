@@ -15,13 +15,17 @@ class Usuario extends CI_Controller {
     }
 
     public function cadastrar() {
+        if ($this->session->userdata('email') != '' || $this->session->userdata('email') != NULL):
+            $this->session->set_flashdata('acessoInvalido', 'Para registrar um novo usuário é necessário realizar o logout primeiramente!');
+            redirect("inicio/");  
+        endif;
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
             'tela' => 'usuario/cadastrar',
         );
         $this->load->view("exibirDados", $dados);
     }
-    
+
     public function consultar() {
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
@@ -31,10 +35,20 @@ class Usuario extends CI_Controller {
     }
 
     public function login() {
+
+        if ($this->session->userdata('email') != '' || $this->session->userdata('email') != NULL):
+            redirect("inicio/");
+        endif;
         $dados = array(
             'titulo' => 'Bate-Papo Tecnológico',
             'tela' => 'usuario/login',
         );
         $this->load->view("exibirDados", $dados);
     }
+
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('inicio/');
+    }
+
 }

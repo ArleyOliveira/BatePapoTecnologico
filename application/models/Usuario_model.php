@@ -6,7 +6,7 @@ class Usuario_model extends CI_Model {
 
     public function insert($dados = NULL) {
         $pessoa = array("nome" => $dados['nome'], "dataNascimento" => $dados['dataNascimento'], "sexo" => $dados['sexo'], "avatar" => $dados['sexo'], "dtype" => $dados['dtype']);
-        $usuario = array("codigo" => NULL, "cpf" => $dados['cpf'],"senha" => $dados['senha'], "email" => $dados['email']);
+        $usuario = array("codigo" => NULL, "cpf" => $dados['cpf'], "senha" => $dados['senha'], "email" => $dados['email']);
         if ($pessoa != NULL):
             $this->db->trans_start();
             $this->db->insert('pessoa', $pessoa);
@@ -33,8 +33,21 @@ class Usuario_model extends CI_Model {
         if ($email != NULL && $senha != NULL):
             $sql = "SELECT * FROM consultaUsuario WHERE email = ? AND senha = ?";
             $query = $this->db->query($sql, array($email, $senha));
-            if ($query->num_rows() > 0 && $query->num_rows() == 1):
-                return $query;
+            if ($query->num_rows() > 0 && $query->num_rows() === 1):
+                $usuario = NULL;
+                foreach ($query->result() as $linha):
+                    $usuario = array (
+                        'nome' => $linha->nome,
+                        'email' => $linha->email,
+                        'sexo' => $linha->sexo,
+                        'isAdmin' => $linha->isAdmin,
+                        'isModerado' => $linha->isModerador,
+                        'avatar' => $linha->avatar,
+                        'cpf' => $linha->cpf,
+                        'dtype' => $linha->dtype,
+                    );
+                endforeach;
+                return $usuario;
             else:
                 throw new LoginInvalidoExecption("Email ou senha invalidos!");
             endif;
@@ -42,7 +55,6 @@ class Usuario_model extends CI_Model {
             throw new DadosInvalidoExecption("Os dados informados são invalidos!");
         endif;
     }
-
 
     public function getbyEmailAt($email = NULL, $tabela = NULL) {
         if ($email != NULL && $tabela != NULL):
@@ -80,7 +92,9 @@ class Usuario_model extends CI_Model {
     }
 
     public function do_updatepassword($dados = NULL, $condicao = NULL) {
-
+        
     }
 
 }
+
+;

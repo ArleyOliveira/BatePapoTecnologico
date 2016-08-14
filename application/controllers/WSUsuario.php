@@ -17,21 +17,8 @@ class WSUsuario extends CI_Controller {
     public function login() {
         try {
             $login = json_decode(file_get_contents('php://input'));
-            $usuario = $this->UsuarioDAO->login($login->email, $login->senha);
-            
-            foreach ($usuario->result() as $linha):
-                $nome = $linha->nome;
-                $email = $linha->email;
-                $sexo = $linha->sexo;
-            endforeach;
-            $usuario = array(
-                'nome' => $nome,
-                'sexo' => $sexo,
-                'email' => $email,
-                'esta_logado' => TRUE,
-            );
+            $usuario = $this->UsuarioDAO->login($login->email, $login->senha); 
             if ($login->application === "web") {
-
                 $this->session->set_userdata($usuario);
                 echo json_encode(array("isSuccess" => true, "message" => "Login efetuado com sucesso!", "title" => " Secesso!"));
             } else if ($login->application === "mobile") {
@@ -40,7 +27,7 @@ class WSUsuario extends CI_Controller {
         } catch (DadosInvalidoExecption $die) {
             echo json_encode(array("isSuccess" => false, "message" => $die->getMessage(), "title" => " Falha!", "exception" => $die));
         } catch (LoginInvalidoExecption $lie) {
-            echo json_encode(array("isSuccess" => false, "message" => $die->getMessage(), "title" => " Falha!", "exception" => $lie));
+            echo json_encode(array("isSuccess" => false, "message" => $lie->getMessage(), "title" => " Falha!", "exception" => $lie));
         }
     }
 
@@ -48,7 +35,7 @@ class WSUsuario extends CI_Controller {
         try {
             $dados = file_get_contents('php://input');
             $dados = json_decode($dados);
-            $dados = array("nome" => $dados->nome, "dataNascimento" => $dados->dataNascimento, "sexo" => $dados->sexo, "avatar" => $dados->sexo, "dtype" => "usuario", "senha" => md5($dados->senha), "email" => $dados->email, "cpf" => $dados->cpf);
+            $dados = array("nome" => $dados->nome, "dataNascimento" => $dados->dataNascimento, "sexo" => $dados->sexo, "avatar" => $dados->sexo . ".jpg", "dtype" => "usuario", "senha" => md5($dados->senha), "email" => $dados->email, "cpf" => $dados->cpf);
             $this->UsuarioDAO->getbyEmailAt($dados['email'], "usuario");
             $this->UsuarioDAO->getbyCpfAt($dados['cpf'], "usuario");
             $this->UsuarioDAO->insert($dados);

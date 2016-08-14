@@ -1,7 +1,5 @@
 
 </div>
-</main>
-<!--
 <footer class="mdl-mini-footer" style="margin-bottom: 0px; height: 10px;">
     <div class="mdl-mini-footer__left-section">
         <div class="mdl-logo">&copy; Bate-papo Tecnológico 2016</div>
@@ -11,6 +9,7 @@
         </ul>
     </div>
 </footer>
--->
+</main>
+
 </body>
 </html>
